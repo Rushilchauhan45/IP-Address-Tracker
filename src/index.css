@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Futuristic IP Tracker Design System - All colors MUST be HSL */
+
+@layer base {
+  :root {
+    /* Background gradients */
+    --background: 230 35% 7%;
+    --background-secondary: 225 39% 12%;
+    --foreground: 210 40% 98%;
+
+    /* Glass morphism cards */
+    --card: 230 30% 8%;
+    --card-foreground: 210 40% 98%;
+    --glass: 230 30% 15%;
+    --glass-border: 230 30% 25%;
+
+    /* Futuristic accent colors */
+    --primary: 264 83% 70%;
+    --primary-glow: 264 100% 80%;
+    --primary-foreground: 230 35% 7%;
+
+    --secondary: 189 100% 70%;
+    --secondary-glow: 189 100% 80%;
+    --secondary-foreground: 230 35% 7%;
+
+    --accent: 294 100% 70%;
+    --accent-glow: 294 100% 80%;
+    --accent-foreground: 230 35% 7%;
+
+    /* Muted colors */
+    --muted: 230 30% 15%;
+    --muted-foreground: 217 10% 64.9%;
+
+    /* States */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 230 30% 25%;
+    --input: 230 30% 15%;
+    --ring: 264 83% 70%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-glow: linear-gradient(135deg, hsl(var(--primary-glow)), hsl(var(--secondary-glow)));
+    --gradient-background: radial-gradient(ellipse at top, hsl(var(--background-secondary)), hsl(var(--background)));
+    
+    /* Glass effects */
+    --glass-background: hsl(var(--glass) / 0.1);
+    --glass-border-color: hsl(var(--glass-border) / 0.2);
+    --glass-shadow: 0 8px 32px 0 hsl(var(--primary) / 0.1);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Dark mode (same futuristic theme) */
+  .dark {
+    /* Already optimized for dark/futuristic theme */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground font-inter;
+    background: var(--gradient-background);
+    overflow-x: hidden;
+  }
+
+  /* Glass morphism utility classes */
+  .glass {
+    background: var(--glass-background);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border-color);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-intense {
+    background: hsl(var(--glass) / 0.2);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid hsl(var(--glass-border) / 0.3);
+    box-shadow: 0 8px 32px 0 hsl(var(--primary) / 0.2);
+  }
+
+  /* Gradient text utilities */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-glow {
+    background: var(--gradient-glow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+
+  .glow-secondary {
+    box-shadow: 0 0 20px hsl(var(--secondary) / 0.5);
+  }
+
+  /* Animation utilities */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+
+  /* Three.js canvas positioning */
+  .three-canvas {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
+@layer components {
+  /* Button variants */
+  .btn-futuristic {
+    @apply relative px-8 py-3 rounded-xl font-medium transition-all duration-300;
+    background: var(--gradient-primary);
+    border: 1px solid hsl(var(--primary) / 0.3);
+    box-shadow: 0 4px 16px hsl(var(--primary) / 0.3);
+  }
+
+  .btn-futuristic:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px hsl(var(--primary) / 0.4);
+  }
+
+  .btn-futuristic:active {
+    transform: translateY(0);
+  }
+
+  /* Input styling */
+  .input-futuristic {
+    @apply glass rounded-xl px-6 py-4 text-foreground placeholder:text-muted-foreground;
+    @apply border-glass-border focus:border-primary focus:ring-2 focus:ring-primary/20;
+    transition: var(--transition-smooth);
+  }
+
+  .input-futuristic:focus {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
+  }
+}
+
+/* Keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 5px hsl(var(--primary) / 0.5); }
+  100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.8), 0 0 30px hsl(var(--secondary) / 0.3); }
+}
