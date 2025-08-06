@@ -27,8 +27,8 @@ export function useIPTracker() {
     
     try {
       const url = ip === 'current' 
-        ? 'http://ip-api.com/json/'
-        : `http://ip-api.com/json/${ip}`;
+        ? 'https://ip-api.com/json/'
+        : `https://ip-api.com/json/${ip}`;
       
       const response = await axios.get(url);
       
