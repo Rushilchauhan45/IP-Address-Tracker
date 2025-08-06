@@ -34,7 +34,7 @@ export default function Footer() {
             </motion.a>
             
             <motion.a
-              href="https://github.com/Rushilchauhan05"
+              href="https://github.com/Rushilchauhan45/IP-Address-Tracker"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, y: -2 }}

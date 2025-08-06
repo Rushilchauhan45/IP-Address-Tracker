@@ -9,7 +9,7 @@
 
 **🚀 A cutting-edge IP address tracking application with stunning 3D animations and real-time geolocation data**
 
-[🔗 Live Demo](https://lovable.dev/projects/830ba976-3238-4377-bebd-f0f138ce09ef) • [📖 Documentation](#-features) • [⚡ Quick Start](#-quick-start)
+[🔗 Live Demo](https://ipdatatracker.netlify.app/) • [📖 Documentation](#-features) • [⚡ Quick Start](#-quick-start)
 
 </div>
 
@@ -132,8 +132,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 **Rushil Chauhan**
 - 🌐 GitHub: [@Rushilchauhan45](https://github.com/Rushilchauhan45)
-- 📧 Email: [chauhanrushil45@gmail.com]
-- 🔗 LinkedIn: [https://www.linkedin.com/in/rushil-chauhan-b50529304/]
+- 📧 Email: (chauhanrushil45@gmail.com)
+- 🔗 LinkedIn: (https://www.linkedin.com/in/rushil-chauhan-b50529304/)
 
 ---
 
