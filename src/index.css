@@ -6,50 +6,51 @@
 
 @layer base {
   :root {
-    /* Background gradients */
-    --background: 230 35% 7%;
-    --background-secondary: 225 39% 12%;
+    /* Background gradients - Made darker/blacker */
+    --background: 0 0% 2%;
+    --background-secondary: 0 0% 5%;
     --foreground: 210 40% 98%;
 
-    /* Glass morphism cards */
-    --card: 230 30% 8%;
+    /* Glass morphism cards - Made darker */
+    --card: 0 0% 4%;
     --card-foreground: 210 40% 98%;
-    --glass: 230 30% 15%;
-    --glass-border: 230 30% 25%;
+    --glass: 0 0% 8%;
+    --glass-border: 0 0% 15%;
 
     /* Futuristic accent colors */
     --primary: 264 83% 70%;
     --primary-glow: 264 100% 80%;
-    --primary-foreground: 230 35% 7%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 189 100% 70%;
     --secondary-glow: 189 100% 80%;
-    --secondary-foreground: 230 35% 7%;
+    --secondary-foreground: 0 0% 100%;
 
     --accent: 294 100% 70%;
     --accent-glow: 294 100% 80%;
+    --accent-foreground: 0 0% 100%;
     --accent-foreground: 230 35% 7%;
 
-    /* Muted colors */
-    --muted: 230 30% 15%;
+    /* Muted colors - Adjusted for black theme */
+    --muted: 0 0% 10%;
     --muted-foreground: 217 10% 64.9%;
 
     /* States */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 230 30% 25%;
-    --input: 230 30% 15%;
+    --border: 0 0% 15%;
+    --input: 0 0% 8%;
     --ring: 264 83% 70%;
 
     --radius: 0.75rem;
 
-    /* Custom gradients */
+    /* Custom gradients - Updated for black theme */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
     --gradient-glow: linear-gradient(135deg, hsl(var(--primary-glow)), hsl(var(--secondary-glow)));
     --gradient-background: radial-gradient(ellipse at top, hsl(var(--background-secondary)), hsl(var(--background)));
     
-    /* Glass effects */
+    /* Glass effects - Updated for black theme */
     --glass-background: hsl(var(--glass) / 0.1);
     --glass-border-color: hsl(var(--glass-border) / 0.2);
     --glass-shadow: 0 8px 32px 0 hsl(var(--primary) / 0.1);
@@ -191,4 +192,109 @@
 @keyframes pulse-glow {
   0% { box-shadow: 0 0 5px hsl(var(--primary) / 0.5); }
   100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.8), 0 0 30px hsl(var(--secondary) / 0.3); }
+}
+
+@keyframes cosmic-rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes stellar-twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes nebula-drift {
+  0% { transform: translateX(-50px) rotate(0deg); }
+  50% { transform: translateX(50px) rotate(180deg); }
+  100% { transform: translateX(-50px) rotate(360deg); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.6), 0 0 60px rgba(6, 182, 212, 0.3);
+  }
+}
+
+@keyframes border-flow {
+  0% { border-color: rgba(139, 92, 246, 0.5); }
+  25% { border-color: rgba(6, 182, 212, 0.5); }
+  50% { border-color: rgba(245, 158, 11, 0.5); }
+  75% { border-color: rgba(236, 72, 153, 0.5); }
+  100% { border-color: rgba(139, 92, 246, 0.5); }
+}
+
+/* Enhanced animations */
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.animate-border-flow {
+  animation: border-flow 4s ease-in-out infinite;
+}
+
+/* Cosmic theme enhancements - Black theme */
+.cosmic-background {
+  background: radial-gradient(ellipse at top, 
+    hsl(0, 0%, 3%) 0%, 
+    hsl(0, 0%, 1%) 30%, 
+    hsl(0, 0%, 0%) 100%);
+}
+
+.stellar-glow {
+  text-shadow: 
+    0 0 10px hsl(var(--primary) / 0.8),
+    0 0 20px hsl(var(--secondary) / 0.6),
+    0 0 30px hsl(var(--accent) / 0.4);
+}
+
+.planet-shadow {
+  box-shadow: 
+    0 0 30px hsl(var(--primary) / 0.3),
+    inset -10px -10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.space-card {
+  background: linear-gradient(135deg, 
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(10, 10, 10, 0.8) 50%,
+    rgba(0, 0, 0, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(164, 100, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 0 40px rgba(164, 100, 255, 0.1);
+}
+
+/* Exciting hover effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Glowing text effect */
+.text-glow {
+  text-shadow: 
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor;
 }

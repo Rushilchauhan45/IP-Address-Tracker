@@ -23,7 +23,7 @@ export default function Footer() {
           {/* Social links */}
           <div className="flex items-center gap-4">
             <motion.a
-              href="https://linkedin.com/in/rushilchauhan"
+              href="https://www.linkedin.com/in/rushil-chauhan-b50529304/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, y: -2 }}
@@ -34,7 +34,7 @@ export default function Footer() {
             </motion.a>
             
             <motion.a
-              href="https://github.com/rushilchauhan"
+              href="https://github.com/Rushilchauhan05"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, y: -2 }}
@@ -51,12 +51,12 @@ export default function Footer() {
           <p className="text-sm text-muted-foreground">
             Powered by{' '}
             <a 
-              href="https://ipapi.co" 
+              href="https://ip-api.com" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-primary hover:text-primary-glow transition-colors"
             >
-              ipapi.co
+              ip-api.com
             </a>
             {' '}• Built with React, Three.js & Framer Motion
           </p>

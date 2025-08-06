@@ -1,3 +1,54 @@
+/* Universe Background Enhancements */
+.three-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: radial-gradient(ellipse at center, #0f0f23 0%, #000000 100%);
+}
+
+/* Cosmic glow effects for UI elements */
+.glass-intense {
+  background: rgba(15, 15, 35, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced cosmic theme */
+.cosmic-glow {
+  text-shadow: 0 0 20px rgba(164, 100, 255, 0.8);
+}
+
+/* Starfield animation overlay */
+.starfield-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(2px 2px at 160px 30px, #fff, transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: sparkle 20s linear infinite;
+}
+
+@keyframes sparkle {
+  from { transform: translateX(0); }
+  to { transform: translateX(-200px); }
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;

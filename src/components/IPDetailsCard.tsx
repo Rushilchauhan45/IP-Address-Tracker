@@ -21,6 +21,9 @@ interface IPData {
   org: string;
   timezone: string;
   currency: string;
+  countryCode?: string;
+  isp?: string;
+  as?: string;
 }
 
 interface IPDetailsCardProps {
@@ -52,14 +55,14 @@ export default function IPDetailsCard({ data }: IPDetailsCardProps) {
   const DetailItem = ({ icon: Icon, label, value }: { icon: any, label: string, value: string }) => (
     <motion.div 
       variants={itemVariants}
-      className="flex items-center gap-4 p-4 rounded-xl glass hover:glass-intense transition-all duration-300 group"
+      className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-lg sm:rounded-xl glass hover:glass-intense transition-all duration-300 group"
     >
-      <div className="p-3 rounded-lg bg-gradient-primary flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-        <Icon className="h-6 w-6 text-primary-foreground" />
+      <div className="p-2 sm:p-3 rounded-lg bg-gradient-primary flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+        <Icon className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-primary-foreground" />
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-sm text-muted-foreground">{label}</p>
-        <p className="text-lg font-semibold text-foreground truncate">{value}</p>
+        <p className="text-xs sm:text-sm text-muted-foreground">{label}</p>
+        <p className="text-sm sm:text-base lg:text-lg font-semibold text-foreground break-words">{value}</p>
       </div>
     </motion.div>
   );
@@ -113,7 +116,7 @@ export default function IPDetailsCard({ data }: IPDetailsCardProps) {
         <DetailItem
           icon={Wifi}
           label="ISP / Organization"
-          value={data.org}
+          value={data.isp || data.org}
         />
         
         <DetailItem
@@ -123,16 +126,18 @@ export default function IPDetailsCard({ data }: IPDetailsCardProps) {
         />
         
         <DetailItem
-          icon={DollarSign}
-          label="Currency"
-          value={data.currency || 'Not available'}
-        />
-        
-        <DetailItem
           icon={Building}
           label="Country Code"
-          value={data.country}
+          value={data.countryCode || 'Not available'}
         />
+        
+        {data.as && (
+          <DetailItem
+            icon={DollarSign}
+            label="AS Number"
+            value={data.as}
+          />
+        )}
       </div>
 
       {/* Footer with map suggestion */}

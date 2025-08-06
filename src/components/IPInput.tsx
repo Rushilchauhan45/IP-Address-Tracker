@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Search, Loader2 } from 'lucide-react';
+import AnimatedLogo from './AnimatedLogo';
 
 interface IPInputProps {
   onSearch: (ip: string) => void;
@@ -30,14 +31,14 @@ export default function IPInput({ onSearch, loading }: IPInputProps) {
     >
       {/* Main title */}
       <div className="text-center space-y-4">
-        <motion.h1 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="text-5xl md:text-7xl font-bold gradient-text-glow"
+          className="flex justify-center mb-8"
         >
-          IP Tracker
-        </motion.h1>
+          <AnimatedLogo />
+        </motion.div>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,7 +62,7 @@ export default function IPInput({ onSearch, loading }: IPInputProps) {
             type="text"
             value={ipValue}
             onChange={(e) => setIpValue(e.target.value)}
-            placeholder="Enter any IP Address (e.g., 103.240.86.32)"
+            placeholder="Enter any IP Address (e.g., 8.8.8.8)"
             className="input-futuristic w-full text-lg pr-16"
             disabled={loading}
           />
@@ -108,10 +109,10 @@ export default function IPInput({ onSearch, loading }: IPInputProps) {
         <p className="text-sm text-muted-foreground">
           Try sample IP: 
           <button
-            onClick={() => setIpValue('103.240.86.32')}
+            onClick={() => setIpValue('8.8.8.8')}
             className="ml-2 text-primary hover:text-primary-glow transition-colors font-mono"
           >
-            103.240.86.32
+            8.8.8.8
           </button>
         </p>
       </motion.div>

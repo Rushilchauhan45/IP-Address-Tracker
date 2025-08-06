@@ -13,6 +13,9 @@ interface IPData {
   org: string;
   timezone: string;
   currency: string;
+  countryCode?: string;
+  isp?: string;
+  as?: string;
 }
 
 export function useIPTracker() {
@@ -24,26 +27,29 @@ export function useIPTracker() {
     
     try {
       const url = ip === 'current' 
-        ? 'https://ipapi.co/json/'
-        : `https://ipapi.co/${ip}/json/`;
+        ? 'http://ip-api.com/json/'
+        : `http://ip-api.com/json/${ip}`;
       
       const response = await axios.get(url);
       
-      if (response.data.error) {
-        throw new Error(response.data.reason || 'Invalid IP address');
+      if (response.data.status === 'fail') {
+        throw new Error(response.data.message || 'Invalid IP address');
       }
 
       const ipData: IPData = {
-        ip: response.data.ip,
+        ip: response.data.query,
         city: response.data.city || 'Unknown',
-        region: response.data.region || 'Unknown',
-        country: response.data.country_name || response.data.country || 'Unknown',
-        postal: response.data.postal || '',
-        latitude: response.data.latitude || 0,
-        longitude: response.data.longitude || 0,
-        org: response.data.org || 'Unknown ISP',
+        region: response.data.regionName || response.data.region || 'Unknown',
+        country: response.data.country || 'Unknown',
+        postal: response.data.zip || '',
+        latitude: response.data.lat || 0,
+        longitude: response.data.lon || 0,
+        org: response.data.org || response.data.isp || 'Unknown ISP',
         timezone: response.data.timezone || 'Unknown',
-        currency: response.data.currency || ''
+        currency: '', // ip-api.com doesn't provide currency info
+        countryCode: response.data.countryCode || '',
+        isp: response.data.isp || 'Unknown ISP',
+        as: response.data.as || ''
       };
 
       setData(ipData);
@@ -56,7 +62,7 @@ export function useIPTracker() {
     } catch (error: any) {
       console.error('IP tracking error:', error);
       
-      const errorMessage = error.response?.data?.reason || 
+      const errorMessage = error.response?.data?.message || 
                           error.message || 
                           'Failed to track IP address';
       
